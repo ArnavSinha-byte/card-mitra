@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Mitra - Elite Financial Services</title>
+    <style>
+        /* Luxury Color Palette: Deep blacks, metallic golds, ivory whites, sapphire blues */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #000000, #1a1a1a);
+            color: #f5f5f5;
+            overflow-x: hidden;
+        }
+        h1, h2 {
+            font-family: 'Playfair Display', serif;
+            color: #d4af37; /* Gold */
+        }
+        .hero {
+            height: 100vh;
+            background: url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        .hero-content {
+            z-index: 1;
+            animation: fadeIn 2s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .btn {
+            background: #d4af37;
+            color: #000;
+            padding: 15px 30px;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background: #b8860b;
+        }
+        section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid #d4af37;
+            border-radius: 10px;
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .gallery {
+            display: flex;
+            overflow-x: auto;
+            gap: 20px;
+            padding: 20px;
+        }
+        .reward {
+            min-width: 250px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .dashboard {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 10px;
+        }
+        .fab {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #d4af37;
+            color: #000;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        input, button {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #d4af37;
+        }
+        @media (max-width: 768px) {
+            .cards { flex-direction: column; align-items: center; }
+            .hero { height: 70vh; }
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Navigation (Simple) -->
+    <nav style="position: fixed; top: 0; width: 100%; background: rgba(0,0,0,0.8); padding: 10px; z-index: 10;">
+        <h2 style="margin: 0; color: #d4af37;">Card Mitra</h2>
+        <a href="#hero" style="color: #f5f5f5; margin: 0 15px;">Home</a>
+        <a href="#about" style="color: #f5f5f5; margin: 0 15px;">About</a>
+        <a href="#cards" style="color: #f5f5f5; margin: 0 15px;">Cards</a>
+        <a href="#rewards" style="color: #f5f5f5; margin: 0 15px;">Rewards</a>
+        <a href="#dashboard" style="color: #f5f5f5; margin: 0 15px;">Dashboard</a>
+        <a href="#apply" style="color: #f5f5f5; margin: 0 15px;">Apply</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Card Mitra</h1>
+            <p>Exclusive luxury credit cards for the discerning elite.</p>
+            <button class="btn" onclick="scrollToSection('apply')">Apply Now</button>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>About Card Mitra</h2>
+        <p>Experience unparalleled financial luxury with personalized services, elite rewards, and cutting-edge security. Designed for those who demand the best.</p>
+        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Luxury" style="width: 100%; border-radius: 10px;">
+    </section>
+
+    <!-- Card Offerings -->
+    <section id="cards">
+        <h2>Our Elite Cards</h2>
+        <div class="cards">
+            <div class="card">
+                <h3>Titanium Elite</h3>
+                <p>Premium rewards and concierge services.</p>
+                <button class="btn">Customize</button>
+            </div>
+            <div class="card">
+                <h3>Carbon Black</h3>
+                <p>Ultimate discretion with travel perks.</p>
+                <button class="btn">Customize</button>
+            </div>
+            <div class="card">
+                <h3>Gold Sovereign</h3>
+                <p>Loyalty points for luxury purchases.</p>
+                <button class="btn">Customize</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rewards Gallery -->
+    <section id="rewards">
+        <h2>Exclusive Rewards</h2>
+        <div class="gallery">
+            <div class="reward">
+                <h4>Private Concierge</h4>
+                <p>24/7 access to personal assistants for any need.</p>
+            </div>
+            <div class="reward">
+                <h4>VIP Events</h4>
+                <p>Invitations to exclusive galas and experiences.</p>
+            </div>
+            <div class="reward">
+                <h4>Luxury Travel</h4>
+                <p>Complimentary upgrades and private jets.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Personalized Dashboard -->
+    <section id="dashboard">
+        <h2>Your Dashboard Preview</h2>
+        <div class="dashboard">
+            <p>Account Balance: $500,000</p>
+            <canvas id="spendingChart" width="400" height="200"></canvas>
+        </div>
+    </section>
+
+    <!-- Application Form -->
+    <section id="apply">
+        <h2>Apply for Your Card</h2>
+        <form>
+            <input type="text" placeholder="Full Name" required>
+            <input type="email" placeholder="Email" required>
+            <input type="text" placeholder="Annual Income" required>
+            <button class="btn" type="submit">Submit Application</button>
+        </form>
+    </section>
+
+    <!-- Floating Action Button -->
+    <div class="fab" onclick="alert('Quick Apply!')">+</div>
+
+    <!-- Footer -->
+    <footer style="text-align: center; padding: 20px; background: rgba(0,0,0,0.8);">
+        <p>&copy; 2023 Card Mitra. All rights reserved. | Privacy Policy | Terms</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Chart.js for Dashboard
+        const ctx = document.getElementById('spendingChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+                datasets: [{
+                    label: 'Spending ($)',
+                    data: [12000, 19000, 15000, 25000, 22000],
+                    borderColor: '#d4af37',
+                    backgroundColor: 'rgba(212, 175, 55, 0.2)',
+                }]
+            },
+            options: {
+                responsive: true,
+            }
+        });
+    </script>
+</body>
+</html>
